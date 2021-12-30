@@ -40,6 +40,7 @@ import { DoctorCreateComponent } from './components/doctores/doctor-create/docto
 import { DoctorEditComponent } from './components/doctores/doctor-edit/doctor-edit.component';
 import { CitasIndexComponent } from './components/citas/citas-index/citas-index.component';
 import { CitasCreateComponent } from './components/citas/citas-create/citas-create.component';
+import { CitasEditComponent } from './components/citas/citas-edit/citas-edit.component';
 
 
 
@@ -75,6 +76,7 @@ import { CitasCreateComponent } from './components/citas/citas-create/citas-crea
     DoctorEditComponent,
     CitasIndexComponent,
     CitasCreateComponent,
+    CitasEditComponent,
 
   ],
   imports: [

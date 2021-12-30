@@ -36,7 +36,7 @@ function registrar(req,res){
         cama.stock = data.stock;
         cama.idcategoria = data.idcategoria;
 
-        producto.save((err,producto_save)=>{
+        cama.save((err,producto_save)=>{
             if(err){
                 res.status(500).send({message: 'Error en el servidor'});
             }else{

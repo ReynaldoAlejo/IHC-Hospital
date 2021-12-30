@@ -37,15 +37,16 @@ export class CitaService {
   }
 
   insert_cita(data:any){
-    const fd = new FormData();
+    /*const fd = new FormData();
     fd.append('idpaciente',data.idpaciente);
     fd.append('iduser',data.iduser);
     fd.append('iddoctor',data.iddoctor);
     fd.append('idespecialidad',data.idespecialidad);
     fd.append('fecha',data.fecha);
     fd.append('hora',data.hora);
-    fd.append('detalle',data.detalle);
-    return this._http.post(this.url+'cita/registrar',fd);
+    fd.append('detalle',data.detalle);*/
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url+'cita/registrar',data,{headers:headers});
   }
 
 

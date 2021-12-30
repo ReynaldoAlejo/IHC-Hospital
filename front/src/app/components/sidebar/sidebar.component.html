@@ -12,13 +12,13 @@
       <svg>
         <use xlink:href="#ion-ios-pulse-strong"></use>
       </svg>
-      Rokasa-Inicio
+      CLÍNICA CARRIÓN
     </a>
-        <div class="sidebar-content">
+        <div class="sidebar-content " >
             <div class="sidebar-user">
-                <img src="../../../assets/img/faviFerreteria.png" class="img-fluid rounded-circle mb-2"  />
-                <div class="font-weight-bold">Rokasa</div>
-                <small>Usuario-Rokasa</small>
+                <img src="../../../assets/img/logo2.png" class="img-fluid rounded-circle mb-2"  />
+                <div class="font-weight-bold">Usuario</div>
+                <small>{{identity.nombres}} {{identity.apellidos}}</small>
             </div>
 
             <ul class="sidebar-nav">
@@ -40,25 +40,33 @@
                 </li>
                 <li class="sidebar-item" *ngIf="identity.role == 'Administración' || identity.role == 'Ventas'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/clientes']">
-                        <i class="align-middle mr-2 fas fa-address-book fa-fw"></i> <span class="align-middle">Asegurados</span>
+                        <i class="align-middle mr-2 fas fa-user fa-fw"></i> <span class="align-middle">Asegurados</span>
                     </a>
                 </li>
 
+                <li class="sidebar-item" *ngIf="identity.role == 'Administración'" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/proveedores']">
+                      <i class="align-middle mr-2 fas fa-syringe fa-fw"></i> <span class="align-middle">Especialidades</span>
+                  </a>
+              </li>
+
+                <li class="sidebar-item" *ngIf="identity.role == 'Administración' || identity.role == 'Ventas'" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/doctores']">
+                      <i class="align-middle mr-2 fas fa-user-md fa-fw"></i> <span class="align-middle">Doctores</span>
+                  </a>
+              </li>
+
                 <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Inventario'|| identity.role=='Ventas'" routerLinkActive="sidebar-item active">
                   <a class="sidebar-link" [routerLink]="['/citas']">
-                      <i class="align-middle mr-2 fas fa-warehouse fa-fw"></i> <span class="align-middle">Citas</span>
+                      <i class="align-middle mr-2 fas fa-calendar-plus fa-fw"></i> <span class="align-middle">Citas</span>
                   </a>
 
               </li>
-                <li class="sidebar-item" *ngIf="identity.role == 'Administración' || identity.role == 'Ventas'" routerLinkActive="sidebar-item active">
-                  <a class="sidebar-link" [routerLink]="['/doctores']">
-                      <i class="align-middle mr-2 fas fa-address-book fa-fw"></i> <span class="align-middle">Doctores</span>
-                  </a>
-              </li>
+
 
                 <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Inventario'|| identity.role=='Ventas'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/productos']">
-                        <i class="align-middle mr-2 fas fa-warehouse fa-fw"></i> <span class="align-middle">Camas</span>
+                        <i class="align-middle mr-2 fas fa-procedures fa-fw"></i> <span class="align-middle">Camas</span>
                     </a>
 
                 </li>
@@ -68,11 +76,7 @@
                         <i class="align-middle mr-2 fas fa-shopping-cart fa-fw"></i> <span class="align-middle">Ventas</span>
                     </a>
                 </li>-->
-                <li class="sidebar-item" *ngIf="identity.role == 'Administración'" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/proveedores']">
-                        <i class="align-middle mr-2 fas fa-truck-loading fa-fw"></i> <span class="align-middle">Especialidades</span>
-                    </a>
-                </li>
+
 
                <!-- <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Inventario'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/pedidos']">

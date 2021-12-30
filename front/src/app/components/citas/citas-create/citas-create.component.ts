@@ -35,7 +35,7 @@ export class CitasCreateComponent implements OnInit {
     this._citaService.get_especialidades().subscribe(
       response=>{
         this.especialidades = response.especialidad;
-        console.log(this.especialidades);
+       // console.log(this.especialidades);
 
       },
       error=>{
@@ -64,15 +64,7 @@ export class CitasCreateComponent implements OnInit {
       }
     );
 
-    this._citaService.get_especialidades().subscribe(
-      response =>{
 
-        this.especialidades = response.especialidad;
-      },
-      error=>{
-
-      }
-    );
   }else{
     this._router.navigate(['']);
   }
@@ -87,16 +79,16 @@ export class CitasCreateComponent implements OnInit {
     this.error_message = '';
    }
 
-  onSubmit(productoForm:NgForm){
-    if(productoForm.valid){
+  onSubmit(citaForm:NgForm){
+    if(citaForm.valid){
      this._citaService.insert_cita({
-      idpaciente: productoForm.value.idpaciente,
+      idpaciente: citaForm.value.idpaciente,
       iduser: this.identity._id,
-      iddoctor: productoForm.value.iddoctor,
-      idespecialidad: productoForm.value.idespecialidad,
-      fecha:productoForm.value.fecha,
-      hora:productoForm.value.hora,
-      detalle:productoForm.value.detalle,
+      iddoctor: citaForm.value.iddoctor,
+      idespecialidad: citaForm.value.idespecialidad,
+      fecha:citaForm.value.fecha,
+      hora:citaForm.value.hora,
+      detalle:citaForm.value.detalle,
 
 
      }).subscribe(

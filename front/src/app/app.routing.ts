@@ -33,7 +33,7 @@ import { CitasIndexComponent } from './components/citas/citas-index/citas-index.
 
 import { CitasCreateComponent } from './components/citas/citas-create/citas-create.component';
 
-
+import { CitasEditComponent } from './components/citas/citas-edit/citas-edit.component';
 const appRoute:Routes =[
      {path:'', component:LoginComponent},
      {path:'dashboard', component:DashboardComponent},
@@ -63,6 +63,7 @@ const appRoute:Routes =[
      {path: 'doctor/editar/:id', component: DoctorEditComponent},
      {path:'citas',component:CitasIndexComponent},
      {path:'cita/registrar',component:CitasCreateComponent},
+     {path: 'cita/editar/:id', component: CitasEditComponent},
 
 ]
 

@@ -4,7 +4,7 @@
     <!--No es recomandado dar estilos así, pero no hay tiempo :v-->
     <style>
         table,.card-title,.header,.dropdown-menu{
-            color:#404C4A ;
+          color:rgb(41, 37, 37);
         }
     </style>
     <app-sidebar style="background: white !important;"></app-sidebar>
@@ -36,10 +36,10 @@
                             <div class="card-header">
                                 <h5 class="card-title">Listado de asegurados</h5>
 
-                                <a [routerLink]="['/cliente/registrar']"  class="btn btn-primary">Nuevo asegurado</a>
+                                <a [routerLink]="['/cliente/registrar']"  class="btn btn "  style="background-color: #009c8c ; color:blanchedalmond">Nuevo asegurado</a>
                             </div>
                             <table class="table table-striped table-hover">
-                                <thead style="background-color:#404C4A;color: blanchedalmond;">
+                                <thead style="background-color: #009c8c ; color:blanchedalmond">
                                     <tr>
                                         <th>Nombre y apellido</th>
                                         <th>DNI</th>
@@ -49,7 +49,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let item of clientes | paginate: { itemsPerPage: 10, currentPage: p }">
+                                <tbody *ngFor="let item of clientes | paginate: { itemsPerPage: 6, currentPage: p }">
                                         <td>
                                             {{item.nombre}}  {{item.apellido}}
                                         </td>
@@ -58,7 +58,7 @@
                                         <td>{{item.direccion}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <button style="background-color: #EB8038;color:blanchedalmond" type="button" class="btn mb-1 btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button  style="background-color: #009c8c ; color:blanchedalmond" type="button" class="btn mb-1 btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-cog"></i>
                                                 </button>
                                                 <div class="dropdown-menu">

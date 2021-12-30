@@ -1,0 +1,126 @@
+<div class="wrapper">
+  <app-sidebar style="background: white !important;"></app-sidebar>
+
+  <div class="main">
+      <nav class="navbar navbar-expand navbar-theme">
+          <a class="sidebar-toggle d-flex mr-2">
+              <i class="hamburger align-self-center"></i>
+          </a>
+      </nav>
+      <main class="content">
+          <div class="container-fluid">
+
+              <div class="header">
+                  <h1 class="header-title">
+                    Edición cita - Clínica Carrión
+                  </h1>
+                  <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                          <!-- <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li> -->
+                          <li class="breadcrumb-item"><a [routerLink]="['/citas']">Citas</a></li>
+                          <li class="breadcrumb-item"><a> <u>Edición de cita</u></a></li>
+                      </ol>
+                  </nav>
+              </div>
+              <div class="row">
+                  <div class="col-12 col-lg-12" *ngIf="error_message">
+                      <div class="alert alert-danger alert-dismissible" role="alert">
+                          <div class="alert-message">
+                              {{error_message}}
+                          </div>
+
+                          <button type="button" (click)="error_alert()" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-12 col-lg-12" *ngIf="success_message">
+                      <div class="alert alert-info alert-dismissible" role="alert">
+                          <div class="alert-message">
+                              {{success_message}}
+                          </div>
+
+                          <button type="button" class="close" (click)="success_alert()" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-12 col-xl-8" style="color:#404C4A">
+                      <div class="card">
+                          <div class="card-header">
+                            <h4   style="color:#404C4A">Edite los cambios que desee cambiar</h4>
+                            <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
+                          </div>
+                          <div class="card-body" >
+                            <form #citaForm="ngForm" (ngSubmit)="onSubmit(citaForm)">
+
+
+                                <div class="row">
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Nombre del asegurado - código*</label>
+                                            <select class="form-control"  #idpaciente="ngModel" required name="idpaciente" [(ngModel)]="cita.idpaciente">
+                                              <option value="" disabled>SELECCIONAR</option>
+                                              <option value="{{item._id}}" *ngFor="let item of pacientes">{{item.dni}}</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                      <div class="form-group">
+                                          <label class="form-label">Especialidad*</label>
+                                          <select class="form-control"  #idespecialidad="ngModel" required name="idespecialidad" [(ngModel)]="cita.idespecialidad">
+                                              <option value="" disabled>SELECCIONAR</option>
+                                              <option value="{{item._id}}" *ngFor="let item of especialidades">{{item.nombre}}</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Doctor*</label>
+                                        <select class="form-control"  #iddoctor="ngModel" required name="iddoctor" [(ngModel)]="cita.iddoctor">
+                                          <option value="" disabled>SELECCIONAR</option>
+                                          <option value="{{item._id}}" *ngFor="let item of doctores">{{item.nombre}}</option>
+                                      </select>
+                                    </div>
+                                </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Fecha de cita*</label>
+                                        <input type="date" class="form-control" placeholder="Ingrese la fecha de la cita" #fecha="ngModel" name="fecha" [(ngModel)]="cita.fecha" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                      <label class="form-label">Hora de cita*</label>
+                                      <input type="time" class="form-control" placeholder="Ingrese la hora de cita" #hora="ngModel" name="hora" [(ngModel)]="cita.hora" required>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-label">Detalle*</label>
+                                    <input type="text" class="form-control" placeholder="Ej.Dolor muscular" #detalle="ngModel" name="detalle" [(ngModel)]="cita.detalle" required>
+                                </div>
+                            </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn"  style="background-color: #009c8c ; color:blanchedalmond">Actualizar</button>
+                            </form>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+      </main>
+
+  </div>
+</div>
+

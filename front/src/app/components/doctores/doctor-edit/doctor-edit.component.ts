@@ -88,7 +88,7 @@ export class DoctorEditComponent implements OnInit {
       }).subscribe(
         response=>{
           console.log(response);
-          this.success_message = 'Se actualizó el producto correctamente';
+          this.success_message = 'Se actualizó el registro correctamente';
         },
         error=>{
 
