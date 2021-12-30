@@ -61,19 +61,27 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-lg-4">
+                                          <div class="form-group">
+                                              <label class="form-label">Categoria *</label>
+                                              <select class="form-control"  #idcategoria="ngModel" required name="idcategoria" [(ngModel)]="producto.idcategoria">
+                                                  <option value="" disabled>SELECCIONAR</option>
+                                                  <option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo.toUpperCase()}}</option>
+                                              </select>
+                                          </div>
+                                      </div>
+
+                                      <div class="col-lg-2">
+                                        <label class="form-label">Cantidad *</label>
+                                        <input type="number" class="form-control" placeholder="0"  #stock="ngModel" name="stock" [(ngModel)]="producto.stock" required>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label class="form-label">Categoria *</label>
-                                                <select class="form-control"  #idcategoria="ngModel" required name="idcategoria" [(ngModel)]="producto.idcategoria">
-                                                    <option value="" disabled>SELECCIONAR</option>
-                                                    <option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo.toUpperCase()}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                     </div>
+
+
+
+
+
 
 
                                     <button type="submit" class="btn btn" style="background-color: #009c8c ; color:blanchedalmond">Actualizar</button>

@@ -45,6 +45,7 @@ export class ProductoService {
   update_producto(data:any){
     const fd = new FormData();
     fd.append('nombre',data.nombre);
+    fd.append('stock',data.stock);
     fd.append('imagen',data.imagen);
     fd.append('idcategoria',data.idcategoria);
 

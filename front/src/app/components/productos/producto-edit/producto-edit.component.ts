@@ -78,12 +78,13 @@ export class ProductoEditComponent implements OnInit {
     }
   }
 
-  onSubmit(productoForm: { valid: any; value: { nombre: any; unidad_venta: any; precio_compra: any; precio_venta: any;stock: any; idcategoria: any;  }; }){
+  onSubmit(productoForm: { valid: any; value: { nombre: any;stock: any; idcategoria: any;  }; }){
     if(productoForm.valid){
 
       this._productoService.update_producto({
         _id: this.id,
         nombre: productoForm.value.nombre,
+        stock : productoForm.value.stock,
         imagen: this.file,
         idcategoria: productoForm.value.idcategoria,
         img_name : this.producto.imagen,

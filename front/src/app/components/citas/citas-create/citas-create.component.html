@@ -54,18 +54,15 @@
                           <div class="card-body">
                               <form #citaForm="ngForm" (ngSubmit)="onSubmit(citaForm)">
 
-                                <div class="col-lg-4 form-group">
-                                  <label><b>Trabajador</b></label>
-                                  <input type="text" class="form-control" readonly value="{{identity.nombres}} {{identity.apellidos}}">
-                              </div>
+
                                   <div class="row">
 
                                       <div class="col-lg-4">
                                           <div class="form-group">
-                                              <label class="form-label">Nombre del asegurado - código*</label>
+                                              <label class="form-label">Asegurado - código*</label>
                                               <select class="form-control"  #idpaciente="ngModel" required name="idpaciente" [(ngModel)]="cita.idpaciente">
                                                 <option value="" disabled>SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of pacientes">{{item.dni}}</option>
+                                                <option value="{{item._id}}" *ngFor="let item of pacientes">{{item.nombre}} <b>-</b>  {{item.dni}}</option>
                                             </select>
                                           </div>
                                       </div>

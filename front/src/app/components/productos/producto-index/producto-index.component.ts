@@ -14,7 +14,7 @@ declare var $:any;
   styleUrls: ['./producto-index.component.css']
 })
 export class ProductoIndexComponent implements OnInit {
-
+  public idx:any;
   public productos: any;
   public url;
   public filter:any ;
@@ -148,7 +148,7 @@ export class ProductoIndexComponent implements OnInit {
 
   aumentar_stock(stockForm:NgForm){
     if(stockForm.valid){
-     /*  if(this.producto_id){
+      if(this.producto_id){
         this._productoService.stock_producto({
           _id: this.producto_id,
           stock: stockForm.value.producto_stock,
@@ -170,7 +170,7 @@ export class ProductoIndexComponent implements OnInit {
 
           }
         );
-      } */
+      }
 
     }
   }
