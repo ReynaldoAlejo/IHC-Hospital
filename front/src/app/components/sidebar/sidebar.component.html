@@ -25,11 +25,11 @@
                 <!-- <li class="sidebar-header">
                     Main
                 </li> -->
-                <li class="sidebar-item" *ngIf="identity.role == 'Administración'" routerLinkActive="sidebar-item active">
+               <!-- <li class="sidebar-item" *ngIf="identity.role == 'Administración'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/dashboard']">
                         <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboard</span>
                     </a>
-                </li>
+                </li>-->
 
 
 
@@ -63,17 +63,18 @@
 
                 </li>
 
-                <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Ventas'" routerLinkActive="sidebar-item active">
+               <!-- <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Ventas'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/ventas']">
                         <i class="align-middle mr-2 fas fa-shopping-cart fa-fw"></i> <span class="align-middle">Ventas</span>
                     </a>
-                </li>
+                </li>-->
                 <li class="sidebar-item" *ngIf="identity.role == 'Administración'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/proveedores']">
                         <i class="align-middle mr-2 fas fa-truck-loading fa-fw"></i> <span class="align-middle">Especialidades</span>
                     </a>
                 </li>
-                <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Inventario'" routerLinkActive="sidebar-item active">
+
+               <!-- <li class="sidebar-item" *ngIf="identity.role == 'Administración'||identity.role == 'Inventario'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/pedidos']">
                         <i class="align-middle mr-2 fas fa-clipboard fa-fw"></i> <span class="align-middle">Pedidos</span>
                     </a>
@@ -83,6 +84,7 @@
                         <i class="align-middle mr-2 fas fa-clipboard-check fa-fw"></i> <span class="align-middle">Entregas</span>
                     </a>
                 </li>
+                -->
                 <li class="sidebar-item">
                     <a class="sidebar-link" (click)="logout()">
                         <i class="align-middle mr-2 fas fa-sign-out-alt fa-fw"></i> <span class="align-middle">Cerrar Sesión</span>

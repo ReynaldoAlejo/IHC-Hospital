@@ -12,43 +12,44 @@
 
                 <div class="header">
                     <h1 class="header-title">
-                        Clientes
+                      Registro de especialidad - Clínica Carrión
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-                            <li class="breadcrumb-item"><a [routerLink]="['/proveedores']" >Proveedores</a></li>
-                            <li class="breadcrumb-item"><a>Registrar proveedor</a></li>
+                          <!--  <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>-->
+                            <li class="breadcrumb-item"><a [routerLink]="['/proveedores']" >Especialidades</a></li>
+                            <li class="breadcrumb-item"><a> <u>Registrar especialidad</u></a></li>
                         </ol>
                     </nav>
                 </div>
                 <div class="row">
 
-                    <div class="col-12 col-xl-12" style="color:#404C4A">
+                    <div class="col-12 col-xl-8" style="color:#404C4A">
                         <form #proveedorForm="ngForm" (ngSubmit)="onSubmit(proveedorForm)">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title" style="color:#404C4A">Listado de especialidades</h5>
+                                  <h4   style="color:#404C4A">Complete los siguientes campos para registrar un nueva especialidad </h4>
+                                  <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Nombre de la especialidad</b></label>
-                                                <input type="text" class="form-control" #nombre="ngModel" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="Nombre de empresa proveedora" required>
+                                                <label><b>Nombre de la especialidad *</b></label>
+                                                <input type="text" class="form-control" #nombre="ngModel" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="Nombre de la especialidad" required>
                                             </div>
                                        </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Descripcion de la especialidad</b></label>
-                                                <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="proveedor.descripcion" placeholder="Teléfono" required>
+                                                <label><b>Descripcion de la especialidad *</b></label>
+                                                <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="proveedor.descripcion" placeholder="Descripción" required>
                                             </div>
                                         </div>
                                    </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-success" type="submit">Registrar proveedor</button>
+                                    <button class="btn btn-success" type="submit">Registrar especialidad</button>
                                 </div>
                             </div>
                         </form>

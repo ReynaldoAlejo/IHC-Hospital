@@ -16,9 +16,9 @@
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-                            <li class="breadcrumb-item"><a [routerLink]="['/usuarios']" >Usuarios</a></li>
-                            <li class="breadcrumb-item"><a>Registrar usuario</a></li>
+                           <!-- <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>-->
+                            <li class="breadcrumb-item"><a [routerLink]="['/usuarios']" > Usuarios</a></li>
+                            <li class="breadcrumb-item"><a> <u>Registrar usuario</u> </a></li>
                         </ol>
                     </nav>
                 </div>
@@ -38,51 +38,52 @@
                         <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title"  style="color:#404C4A">Listado de usuarios</h5>
+                                    <h4   style="color:#404C4A">Complete los siguientes campos para registrar un nuevo usuario</h4>
+                                    <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Nombres del usuario</b></label>
+                                                <label><b>Nombres del usuario*</b></label>
                                                 <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="user.nombres" placeholder="Nombres completos" required>
                                             </div>
                                        </div>
                                        <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label><b>Apellidos del usuario</b></label>
+                                            <label><b>Apellidos del usuario*</b></label>
                                             <input type="text" class="form-control" #apellidos="ngModel" name="apellidos" [(ngModel)]="user.apellidos" placeholder="Apellidos completos" required>
                                         </div>
                                    </div>
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Correo del usuario</b></label>
+                                                <label><b>Correo del usuario*</b></label>
                                                 <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Correo Electrónico" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Contraseña del usuario</b></label>
+                                                <label><b>Contraseña del usuario*</b></label>
                                                 <input type="text" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" placeholder="Contraseña" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>DNI del usuario</b></label>
-                                                <input type="text" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="user.dni" placeholder="DNI" required>
+                                                <label><b>DNI del usuario*</b></label>
+                                                <input type="text" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="user.dni" placeholder="Ej:75240123" maxlength="8" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Teléfono del usuario</b></label>
+                                                <label><b>Teléfono del usuario*</b></label>
                                                 <input type="text" class="form-control" #telefono="ngModel" name="telefono" [(ngModel)]="user.telefono" placeholder="Teléfono" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Rol del usuario</b></label>
-                                                <select class="form-control" #role="ngModel" name="role" [(ngModel)]="user.role" requiredsss>
-                                                    <option value="" disabled>SELLECCIONAR</option>
+                                                <label><b>Rol del usuario*</b></label>
+                                                <select class="form-control" #role="ngModel" name="role" [(ngModel)]="user.role" required>
+                                                    <option value="" disabled>SELLECCIONAR*</option>
                                                     <option value="Administración">Administración</option>
                                                     <option value="Ventas">Ventas</option>
                                                     <option value="Inventario">Inventario</option>
@@ -97,14 +98,14 @@
                             </div>
                         </form>
                     </div>
-    
+
                 </div>
 
 
 
-               
+
             </div>
         </main>
-       
+
     </div>
 </div>

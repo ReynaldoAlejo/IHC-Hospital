@@ -11,13 +11,14 @@ import { User } from '../../../models/User';
 export class UserCreateComponent implements OnInit {
   public user;
   public success_message:any;
+  public error_message:any;
   public identity: any;
   constructor(
     private _userService : UserService,
     private _router : Router,
-  ) { 
+  ) {
     this.user = new User('','','','','','','','');
-    this.identity = this._userService.getIdentity(); 
+    this.identity = this._userService.getIdentity();
   }
 
   ngOnInit(): void {
@@ -25,8 +26,12 @@ export class UserCreateComponent implements OnInit {
 
     }else{
       this._router.navigate(['dashboard']);
-    } 
+    }
   }
+
+  error_alert(){
+    this.error_message = '';
+   }
   success_alert(){
     this.success_message = '';
   }
@@ -47,13 +52,14 @@ export class UserCreateComponent implements OnInit {
           this.user = new User('','','','','','','','');
           this.success_message = 'El usuario se registro con exito';
           console.log(response);
-          
-        },
-        (        error: any)=>{
-          console.log(<any>error);
-          
+
+        },error=>{
+
         }
-      ); 
+
+      );
+    }else{
+      this.error_message = 'Complete correctamente el formulario';
     }
   }
 }

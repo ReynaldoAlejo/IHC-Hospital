@@ -36,7 +36,7 @@ export class CitaService {
     return this._http.get(this.url+'pacientes',{headers:headers});
   }
 
-  insert_doctor(data:any){
+  insert_cita(data:any){
     const fd = new FormData();
     fd.append('idpaciente',data.idpaciente);
     fd.append('iduser',data.iduser);
@@ -45,16 +45,16 @@ export class CitaService {
     fd.append('fecha',data.fecha);
     fd.append('hora',data.hora);
     fd.append('detalle',data.detalle);
-    return this._http.post(this.url + 'doctor/registrar',fd);
+    return this._http.post(this.url+'cita/registrar',fd);
   }
 
 
-  get_doctor(id:any):Observable<any>{
+  get_cita(id:any):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'cita/'+id,{headers:headers});
   }
 
-  update_doctor(data:any){
+  update_cita(data:any){
     const fd = new FormData();
     fd.append('idpaciente',data.idpaciente);
     fd.append('iduser',data.iduser);
@@ -64,7 +64,7 @@ export class CitaService {
     fd.append('hora',data.hora);
     fd.append('detalle',data.detalle);
 
-    return this._http.put(this.url + 'doctor/editar/'+data._id+'/'+data.img_name,fd);
+    return this._http.put(this.url + 'cita/editar/'+data._id+'/'+data.img_name,fd);
   }
 
   insert_especialidad(data:any):Observable<any>{

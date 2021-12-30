@@ -32,11 +32,11 @@ export class ClienteIndexComponent implements OnInit {
 
    eliminar(id: any){
     Swal.fire({
-      title: 'Estas seguro de eliminarlo?',
+      title: '¿Está seguro de eliminarlo?',
       text: "Eliminación!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Eliminar!',
+      confirmButtonText: 'Sí,eliminar',
       cancelButtonText: 'No, cancelar!',
       reverseButtons: true
     }).then((result) => {

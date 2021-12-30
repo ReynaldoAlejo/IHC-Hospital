@@ -12,13 +12,13 @@
 
                 <div class="header">
                     <h1 class="header-title">
-                        Clientes
+                      Edición de especialidad - Clínica Carrión
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-                            <li class="breadcrumb-item"><a [routerLink]="['/proveedores']" >Proveedores</a></li>
-                            <li class="breadcrumb-item"><a>Editar proveedor</a></li>
+                          <!--  <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>-->
+                            <li class="breadcrumb-item"><a [routerLink]="['/proveedores']" >Especialidades</a></li>
+                            <li class="breadcrumb-item"><a> <u>Editar especialidad</u></a></li>
                         </ol>
                     </nav>
                 </div>
@@ -40,21 +40,22 @@
                         <form #proveedorForm="ngForm" (ngSubmit)="onSubmit(proveedorForm)">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title" style="color:#404C4A">Datos del proveedor</h5>
+                                  <h4   style="color:#404C4A">Edite los cambios que desee cambiar</h4>
+                                  <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Nombre </b></label>
-                                                <input type="text" class="form-control" #nombres="ngModel" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="de la empresa proveedora" required>
+                                                <label><b>Nombre * </b></label>
+                                                <input type="text" class="form-control" #nombres="ngModel" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="de la especialidad" required>
                                             </div>
                                        </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Descripcion de la especialidad</b></label>
-                                                <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="proveedor.descripcion" placeholder="Teléfono" required>
+                                                <label><b>Descripcion de la especialidad *</b></label>
+                                                <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="proveedor.descripcion" placeholder="Descripción" required>
                                             </div>
                                         </div>
                                    </div>

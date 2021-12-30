@@ -12,13 +12,13 @@
 
                 <div class="header">
                     <h1 class="header-title">
-                        Asegurados
+                      Asegurados - Clínica Carrión
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <!-- <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li> -->
                             <li class="breadcrumb-item"><a [routerLink]="['/clientes']" >Asegurados</a></li>
-                            <li class="breadcrumb-item"><a>Registrar asegurado</a></li>
+                            <li class="breadcrumb-item"><a><u>Registrar asegurado</u> </a></li>
                         </ol>
                     </nav>
                 </div>
@@ -28,35 +28,36 @@
                         <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title"  style="color:#404C4A">Nuevos  Asegurados</h5>
+                                  <h4   style="color:#404C4A">Complete los siguientes campos para registrar un nuevo asegurado de la clínica</h4>
+                                  <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Nombre del asegurado</b></label>
+                                                <label><b>Nombre del asegurado*</b></label>
                                                 <input type="text" class="form-control" #nombre="ngModel" name="nombre" [(ngModel)]="cliente.nombre" placeholder="Nombres completos" required>
                                             </div>
                                             <div class="form-group">
-                                              <label><b>Apellido del asegurado</b></label>
+                                              <label><b>Apellido del asegurado*</b></label>
                                               <input type="text" class="form-control" #apellido="ngModel" name="apellido" [(ngModel)]="cliente.apellido" placeholder="Apellidos completos" required>
                                           </div>
                                        </div>
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>DNI del asegurado</b></label>
+                                                <label><b>DNI del asegurado*</b></label>
                                                 <input type="text" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="cliente.dni" placeholder="DNI" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                           <div class="form-group">
-                                              <label><b>Dirección del asegurado</b></label>
-                                              <input type="text" class="form-control" #direccion="ngModel" name="direccion" [(ngModel)]="cliente.direccion" placeholder="DNI" required>
+                                              <label><b>Dirección del asegurado*</b></label>
+                                              <input type="text" class="form-control" #direccion="ngModel" name="direccion" [(ngModel)]="cliente.direccion" placeholder="Dirección" required>
                                           </div>
                                       </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Telefono del asegurado</b></label>
+                                                <label><b>Telefono del asegurado*</b></label>
                                                 <input type="text" class="form-control" #telefono="ngModel" name="telefono" [(ngModel)]="cliente.telefono" placeholder="Teléfono" required>
                                             </div>
                                         </div>

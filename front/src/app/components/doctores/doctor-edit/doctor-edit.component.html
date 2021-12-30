@@ -12,13 +12,13 @@
 
               <div class="header">
                   <h1 class="header-title">
-                      Editar productos
+                    Edición doctor - Clínica Carrión
                   </h1>
                   <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
                           <!-- <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li> -->
-                          <li class="breadcrumb-item"><a [routerLink]="['/productos']">Doctores</a></li>
-                          <li class="breadcrumb-item"><a>Edición de doctor</a></li>
+                          <li class="breadcrumb-item"><a [routerLink]="['/doctores']">Doctores</a></li>
+                          <li class="breadcrumb-item"><a> <u>Edición de doctor</u></a></li>
                       </ol>
                   </nav>
               </div>
@@ -48,27 +48,27 @@
                   <div class="col-12 col-xl-8" style="color:#404C4A">
                       <div class="card">
                           <div class="card-header">
-                              <h5 class="card-title" style="color:#404C4A">Complete el formulario</h5>
-                              <h6 class="card-subtitle text-muted" style="color:#404C4A">Productos.</h6>
+                            <h4   style="color:#404C4A">Edite los cambios que desee cambiar</h4>
+                            <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                           </div>
                           <div class="card-body" >
                             <form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)">
                               <div class="row">
                                   <div class="col-lg-6">
                                       <div class="form-group">
-                                          <label class="form-label">Nombre del doctor</label>
+                                          <label class="form-label">Nombre del doctor*</label>
                                           <input type="text" class="form-control" placeholder="Ingrese el titulo del producto" #nombre="ngModel" name="nombre" [(ngModel)]="doctor.nombre" required>
                                       </div>
                                   </div>
                                   <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-label">Apellido del doctor</label>
+                                        <label class="form-label">Apellido del doctor*</label>
                                         <input type="text" class="form-control" placeholder="Ingrese el titulo del producto" #apellido="ngModel" name="apellido" [(ngModel)]="doctor.apellido" required>
                                     </div>
                                 </div>
 
                                   <div class="col-lg-2">
-                                      <label class="form-label">Experiencia</label>
+                                      <label class="form-label">Experiencia*</label>
                                       <input type="number" class="form-control" placeholder="0"  #exp="ngModel" name="exp" [(ngModel)]="doctor.exp" required>
                                   </div>
                               </div>
@@ -76,7 +76,7 @@
                               <div class="row">
                                   <div class="col-lg-4">
                                       <div class="form-group">
-                                          <label class="form-label">Especialidad</label>
+                                          <label class="form-label">Especialidad*</label>
                                           <select class="form-control"  #idespecialidad="ngModel" required name="idespecialidad" [(ngModel)]="doctor.idespecialidad">
                                               <option value="" disabled>SELECCIONAR</option>
                                               <option value="{{item._id}}" *ngFor="let item of especialidades">{{item.nombre}}</option>
@@ -102,8 +102,7 @@
                                   <div class="mt-2">
                                       <input class="btn btn-primary" required (change)="imgSelected($event)" type="file" style="width: 100% !important;">
                                   </div>
-                                  <small>For best results, use an image at least 128px by 128px in .jpg
-                                  format</small>
+                                  <small>Recuerde que en la imagen debe aparecer el 100% del rostro</small>
                               </div>
                           </div>
                       </div>

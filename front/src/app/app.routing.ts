@@ -31,6 +31,8 @@ import { DoctorEditComponent } from './components/doctores/doctor-edit/doctor-ed
 
 import { CitasIndexComponent } from './components/citas/citas-index/citas-index.component';
 
+import { CitasCreateComponent } from './components/citas/citas-create/citas-create.component';
+
 
 const appRoute:Routes =[
      {path:'', component:LoginComponent},
@@ -60,6 +62,7 @@ const appRoute:Routes =[
      {path:'doctor/registrar',component:DoctorCreateComponent},
      {path: 'doctor/editar/:id', component: DoctorEditComponent},
      {path:'citas',component:CitasIndexComponent},
+     {path:'cita/registrar',component:CitasCreateComponent},
 
 ]
 

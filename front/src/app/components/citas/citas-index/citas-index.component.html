@@ -18,12 +18,12 @@
 
              <div class="header">
                  <h1 class="header-title">
-                     Citas
+                     Citas - Clínica Carrión
                  </h1>
                  <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
                          <!-- <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li> -->
-                         <li class="breadcrumb-item"><a>Citas</a></li>
+                         <li class="breadcrumb-item"><a>Gestiona las citas de los asegurados aquí</a></li>
                      </ol>
                  </nav>
              </div>
@@ -74,19 +74,9 @@
                                      </form>
                                    </div> -->
                                  <div class="col-lg-6">
-                                     <h5 class="card-title">Opciones de productos</h5>
-                                     <div class="btn-group">
+                                     <h5 class="card-title">Listado de citas</h5>
 
-                                         <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                             Opciones
-                                         </button>
-                                         <div class="dropdown-menu">
-                                             <a class="dropdown-item" [routerLink]="['/citas/registrar']">Registrar producto</a>
-                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
-                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-categoria">Registrar Categoria</a>
-
-                                         </div>
-                                     </div>
+                                <a [routerLink]="['/cita/registrar']"  class="btn btn-primary">Nueva cita</a>
                                  </div>
                              </div>
 
@@ -117,9 +107,9 @@
                                                  <i class="fas fa-cog"></i>
                                              </button>
                                              <div class="dropdown-menu">
-                                                 <a class="dropdown-item" [routerLink]="['/doctor/editar/',item._id]" >Editar registro</a>
+                                                 <a class="dropdown-item" [routerLink]="['/doctor/editar/',item._id]" >Editar cita</a>
 
-                                                 <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar registro</a>
+                                                 <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar cita</a>
                                                 <!--  <a class="dropdown-item" data-toggle="modal" (click)="get_id(item._id)" [attr.data-target]="'#modal-stock-'+idx">Aumentar Stock</a> -->
                                              </div>
                                          </div>

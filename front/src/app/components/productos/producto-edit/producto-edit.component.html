@@ -12,13 +12,13 @@
 
                 <div class="header">
                     <h1 class="header-title">
-                        Editar productos
+                        Editar cama - Clínica Carrión
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <!-- <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li> -->
-                            <li class="breadcrumb-item"><a [routerLink]="['/productos']">Productos</a></li>
-                            <li class="breadcrumb-item"><a>Edición de producto</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/productos']">Camas</a></li>
+                            <li class="breadcrumb-item"><a><u>Edición de cama</u> </a></li>
                         </ol>
                     </nav>
                 </div>
@@ -48,15 +48,15 @@
                     <div class="col-12 col-xl-8" style="color:#404C4A">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title" style="color:#404C4A">Complete el formulario</h5>
-                                <h6 class="card-subtitle text-muted" style="color:#404C4A">Productos.</h6>
+                              <h4   style="color:#404C4A">Edite los cambios que desee cambiar</h4>
+                              <h6 class="card-title"  style="color: red">Campos obligatorios(*)</h6>
                             </div>
                             <div class="card-body" >
                                 <form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-label">Nombre del producto</label>
+                                                <label class="form-label">Nombre del producto *</label>
                                                 <input type="text" class="form-control" placeholder="Ingrese el titulo del producto" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" required>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="form-label">Categoria</label>
+                                                <label class="form-label">Categoria *</label>
                                                 <select class="form-control"  #idcategoria="ngModel" required name="idcategoria" [(ngModel)]="producto.idcategoria">
                                                     <option value="" disabled>SELECCIONAR</option>
                                                     <option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo.toUpperCase()}}</option>
@@ -92,8 +92,7 @@
                                     <div class="mt-2">
                                         <input class="btn btn-primary" required (change)="imgSelected($event)" type="file" style="width: 100% !important;">
                                     </div>
-                                    <small>For best results, use an image at least 128px by 128px in .jpg
-                                    format</small>
+                                    <small>Recuerde que en la imagen debe ser del tipo de cama registrado</small>
                                 </div>
                             </div>
                         </div>

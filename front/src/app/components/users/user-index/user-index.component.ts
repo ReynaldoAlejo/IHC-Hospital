@@ -18,7 +18,7 @@ export class UserIndexComponent implements OnInit {
   constructor(
     private _userService : UserService,
     private _router : Router
-  ) { 
+  ) {
     this.url=GLOBAL.url;
     this.identity = _userService.getIdentity();
   }
@@ -31,22 +31,22 @@ export class UserIndexComponent implements OnInit {
             this.usuarios = response.usuarios;
         },
         error=>{
-  
+
         }
       );
     }else{
       this._router.navigate(['dashboard']);
     }
-    
+
   }
 
   eliminar(id: any){
     Swal.fire({
-      title: 'Estas seguro de eliminarlo?',
+      title: '¿Estas seguro de eliminarlo?',
       text: "Eliminación!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Eliminar!',
+      confirmButtonText: 'Sí,eliminar!',
       cancelButtonText: 'No, cancelar!',
       reverseButtons: true
     }).then((result) => {
@@ -74,17 +74,17 @@ export class UserIndexComponent implements OnInit {
         );
 
       } else if (
-       
+
         result.dismiss === Swal.DismissReason.cancel
       ) {
         Swal.fire(
           'Cancelado',
-          'Se cancelo la solicitud :)',
+          'Se canceló la solicitud :)',
           'error'
         )
       }
     })
-  } 
+  }
   }
 
 

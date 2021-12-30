@@ -18,11 +18,11 @@
         <main class="content" >
             <div class="container-fluid">
                 <div class="header">
-                    <h1 class="header-title">Usuarios</h1>
+                    <h1 class="header-title">Usuarios - Clínica Carrión</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-                            <li class="breadcrumb-item"><a>Usuarios</a></li>
+                            <!-- <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>-->
+                            <li class="breadcrumb-item"><a>Gestiona a los usuaios de nuestra clínica aquí.</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -31,6 +31,7 @@
 
                     <div class="col-12 col-xl-12">
                         <div class="card">
+
                             <div class="card-header" >
                                 <h5 class="card-title" >Listado de usuarios</h5>
                                 <a [routerLink]="['/usuarios/registrar']" class="btn btn-primary" >Nuevo Usuario</a>
@@ -62,10 +63,10 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    [routerLink]="['/usuario/editar/', item._id]">Editar registro</a>
+                                                    [routerLink]="['/usuario/editar/', item._id]">Editar usuario</a>
 
                                                 <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar
-                                                    registro</a>
+                                                    eliminar</a>
                                             </div>
                                         </div>
                                     </td>
