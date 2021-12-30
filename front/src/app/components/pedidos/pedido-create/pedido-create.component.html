@@ -1,0 +1,145 @@
+<div class="wrapper">
+    <app-sidebar style="background: white;"></app-sidebar>
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Registrar Pedido
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/pedidos']" >Pedidos</a></li>
+                            <li class="breadcrumb-item"><a>Registrar Pedido</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 col-xl-12 form-group" style="color:#404C4A">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title" style="color:#404C4A">Datos del pedido</h5>
+                            </div>
+                            <div class="card-body">
+                                <form #pedidoForm="ngForm" (ngSubmit)="onSubmit(pedidoForm)">
+                                    <div class="row">
+                                        <div class="col-lg-4 form-group">
+                                            <label><b>Trabajador</b></label>
+                                            <input type="text" class="form-control" readonly value="{{identity.nombres}} {{identity.apellidos}}">
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                            <label><b>Proveedor</b></label>
+                                            <select name="" class="form-control" #idproveedor="ngModel" name="idproveedor" [(ngModel)]="pedido.idproveedor">
+                                                <option value="">SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of proveedores">{{item.nombre}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                 
+                                            <a [routerLink]="['/proveedor/registrar']"  class="btn btn-primary">Nuevo proveedor</a>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                 
+                                            <button type="submit" class="btn btn-primary">Registrar pedido</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-12" *ngIf="error_message">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div class="alert-message">
+                               {{error_message}} 
+                            </div>
+
+                            <button type="button" (click)="close_alert()" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12 form-group" style="color:#404C4A">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title" style="color:#404C4A">Detalles del pedido</h5>
+                            </div>
+                            <div class="card-body">
+                                <form #detalleForm="ngForm" (ngSubmit)="save_detalle(detalleForm)">
+                                    <div class="row">
+                                        <div class="col-lg-4 form-group">
+                                            <label for=""><b>Productos</b></label>
+                                            <select class="form-control" #idproducto="ngModel" name="idproducto" [(ngModel)]="detalle.idproducto" (change)="get_data_producto($any($event.target).value)">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of productos">{{item.nombre}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Stock actual</b></label>
+                                            <input type="text" readonly class="form-control" value="{{producto.stock}}">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Cantidad</b></label>
+                                            <input type="text" #cantidad="ngModel" name="cantidad" [(ngModel)]="detalle.cantidad" class="form-control" >
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <label><b>*</b></label>
+                                            <button class="btn btn-primary btn-block" type="submit">Agregar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12" style="color:#404C4A">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title" style="color:#404C4A">Productos</h5>
+                            </div>
+                            <table  class="table table-striped table-hover table-sm">
+                                <thead style="background-color:#404C4A;color: blanchedalmond;">
+                                    <th>Eliminar</th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    
+                                </thead>
+                                <tbody style="color:#404C4A" *ngFor="let item of data_detalle; let idx = index">
+                                    <td><button class="btn btn-danger btn-sm" (click)="eliminar(idx,item.precio_compra,item.cantidad)"><i class="fas fa-trash"></i></button></td>
+                                    <td>{{item.producto}}</td>
+                                    <td>S/.{{item.precio_compra}}</td>
+                                    <td>{{item.cantidad}}</td>
+                                    <td>S/.{{(item.precio_compra) * (item.cantidad)}}</td>
+                                </tbody>
+                                <tfoot style="color:#404C4A">
+                                    <td><b>Total</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>S/.{{total}}</td>
+                                </tfoot>
+                            </table>
+                            <div class="card-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+       
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Clientes
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/proveedores']" >Proveedores</a></li>
+                            <li class="breadcrumb-item"><a>Registrar proveedor</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 col-xl-12" style="color:#404C4A">
+                        <form #proveedorForm="ngForm" (ngSubmit)="onSubmit(proveedorForm)">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title" style="color:#404C4A">Listado de especialidades</h5>
+                                </div>
+                                <div class="card-body">
+                                   <div class="row">
+                                       <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nombre de la especialidad</b></label>
+                                                <input type="text" class="form-control" #nombre="ngModel" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="Nombre de empresa proveedora" required>
+                                            </div>
+                                       </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Descripcion de la especialidad</b></label>
+                                                <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="proveedor.descripcion" placeholder="Teléfono" required>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success" type="submit">Registrar proveedor</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </main>
+
+    </div>
+</div>

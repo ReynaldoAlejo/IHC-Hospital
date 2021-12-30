@@ -1,0 +1,95 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Pedido
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/pedidos']" >Pedidos</a></li>
+                            <li class="breadcrumb-item"><a>Detalle de pedido</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-12 form-group" style="color:#404C4A">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title" style="color:#404C4A">Datos de pedido</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label><b>Proveedor</b></label>
+                                        <input type="text" class="form-control" readonly value="{{pedido.idproveedor.nombre}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Teléfono</b></label>
+                                        <input type="text" class="form-control" readonly value="{{pedido.idproveedor.telefono}}">
+                                    </div>                                     
+                                    <div class="col-4 form-group">
+                                        <label><b>Trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{pedido.iduser.nombres}} {{pedido.iduser.apellidos}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Correo del trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{pedido.iduser.email}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Teléfono del trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{pedido.iduser.telefono}}">
+                                    </div> 
+                           
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12" style="color:#404C4A">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title" style="color:#404C4A">Detalles de pedido</h5>
+    
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead style="background-color:#404C4A;color: blanchedalmond;">
+                                    <tr>
+                                        <th class="text-center">Producto</th>
+                                        <th class="text-center">Precio compra</th>
+                                        <th class="text-center">Cantidad</th>
+                                        <th class="text-center">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of detalle_pedido">
+                                    <td class="text-center">{{item.idproducto.nombre}}</td>
+                                    <td class="text-center">S/.{{item.idproducto.precio_compra}}</td>
+                                    <td class="text-center">{{item.cantidad}}</td>
+                                    <td class="text-center">S/.{{(item.idproducto.precio_compra) * (item.cantidad)}}</td>
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                   
+                </div>
+
+
+
+               
+            </div>
+        </main>
+       
+    </div>
+</div>
+

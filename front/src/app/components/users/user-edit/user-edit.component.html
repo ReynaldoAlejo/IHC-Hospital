@@ -1,0 +1,111 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Usuarios
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/usuarios']" >Usuarios</a></li>
+                            <li class="breadcrumb-item"><a>Editar usuario</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-12" *ngIf="success_message">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <div class="alert-message">
+                                {{success_message}}
+                            </div>
+
+                            <button type="button" class="close" (click)="success_alert()" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12" style="color:#404C4A">
+                        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title" style="color:#404C4A">Edición de usuario</h5>
+                                </div>
+                                <div class="card-body">
+                                   <div class="row">
+                                       <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nombres del usuario</b></label>
+                                                <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="user.nombres" placeholder="Nombres completos" required>
+                                            </div>
+                                       </div>
+                                       <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label><b>Apellidos del usuario</b></label>
+                                            <input type="text" class="form-control" #apellidos="ngModel" name="apellidos" [(ngModel)]="user.apellidos" placeholder="Apellidos completos" required>
+                                        </div>
+                                   </div>
+                                       <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Correo del usuario</b></label>
+                                                <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Correo Electrónico" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nueva contraseña del usuario</b></label>
+                                                <input type="text" class="form-control" name="password" [(ngModel)]="password" placeholder="Contraseña" >
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>DNI del usuario</b></label>
+                                                <input type="text" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="user.dni" placeholder="DNI" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Teléfono del usuario</b></label>
+                                                <input type="text" class="form-control" #telefono="ngModel" name="telefono" [(ngModel)]="user.telefono" placeholder="Teléfono" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Rol del usuario</b></label>
+                                                <select class="form-control" #role="ngModel" name="role" [(ngModel)]="user.role" requiredsss>
+                                                    <option value="" disabled>SELLECCIONAR</option>
+                                                    <option value="Administración">Administración</option>
+                                                    <option value="Ventas">Ventas</option>
+                                                    <option value="Inventario">Inventario</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success" type="submit">Actualizar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+    
+                </div>
+
+
+
+               
+            </div>
+        </main>
+       
+    </div>
+</div>

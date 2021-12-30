@@ -1,0 +1,181 @@
+<div class="wrapper">
+    <style>
+        table,.card-title,.header,.dropdown-menu{
+            color:#404C4A ;
+        }
+    </style>
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Venta
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <!-- <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li> -->
+                            <li class="breadcrumb-item"><a [routerLink]="['/ventas']" >Ventas</a></li>
+                            <li class="breadcrumb-item"><a>Detalle de venta</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-12 form-group" style="color:#404C4A" >
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row no-print">
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-primary float-right"
+                      style="margin-right: 5px"
+                      printTitle="Boleta #{{ venta._id }}"
+                      printSectionId="printable"
+                      ngxPrint
+                    >
+                      <i class="fas fa-file-invoice"></i> Generar boleta
+                    </button>
+                  </div>
+                </div>
+                                <h5 class="card-title" style="color:#404C4A" >Datos de venta</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label><b>Cliente</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.nombres}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Teléfono</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.telefono}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>DNI</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.dni}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.iduser.nombres}} {{venta.iduser.apellidos}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Correo del trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.iduser.email}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Teléfono del trabajador</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.iduser.telefono}}">
+                                    </div> 
+                           
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Detalles de venta</h5>
+    
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead style="background-color:#404C4A;color: blanchedalmond;">
+                                    <tr>
+                                        <th class="text-center">Producto</th>
+                                        <th class="text-center">Precio Venta</th>
+                                        <th class="text-center">Cantidad</th>
+                                        <th class="text-center">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of detalle_venta">
+                                    <td class="text-center">{{item.idproducto.nombre}}</td>
+                                    <td class="text-center">S/.{{item.idproducto.precio_venta}}</td>
+                                    <td class="text-center">{{item.cantidad}}</td>
+                                    <td class="text-center">S/.{{(item.idproducto.precio_venta) * (item.cantidad)}}</td>
+                                </tbody>
+                                <tfoot style="color:#404C4A">
+                                    <td class="text-center"><b>Total</b></td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                    
+                                    <td class="text-center">S/.{{venta.monto}}</td>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div> -->
+
+                    <div id="printable" class="col-12 col-xl-12">
+                        <div class="card">
+                          <div class="card-body" style="color: #404c4a">
+                          <div class="row">
+                            <div class="col-4 form-group">
+                              <label><b>Cliente: </b></label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                readonly
+                                value="{{ venta.idcliente.nombres }}"
+                              />
+                            </div>
+                            <div class="col-4 form-group">
+                              <label><b>Vendedor: </b></label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                readonly
+                                value="{{ venta.iduser.nombres }} {{
+                                  venta.iduser.apellidos
+                                }}"
+                              />
+                            </div>
+                          </div>
+                          </div>
+                          <div class="card-header">
+                            <h3 class="card-title">Detalles de venta</h3>
+                          </div>
+                          <table class="table table-striped table-hover">
+                            <thead style="background-color: #404c4a; color: blanchedalmond">
+                              <tr>
+                                <th class="text-center">Producto</th>
+                                <th class="text-center">Precio Venta</th>
+                                <th class="text-center">Cantidad</th>
+                                <th class="text-center">Subtotal</th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let item of detalle_venta">
+                              <td class="text-center">{{ item.idproducto.nombre }}</td>
+                              <td class="text-center">
+                                S/.{{ item.idproducto.precio_venta }}
+                              </td>
+                              <td class="text-center">{{ item.cantidad }}</td>
+                              <td class="text-center">
+                                S/.{{ item.idproducto.precio_venta * item.cantidad }}
+                              </td>
+                            </tbody>
+                            <tfoot style="background-color: #404c4a; color: blanchedalmond">
+                              <td class="text-center"><b>Total</b></td>
+                              <td class="text-center">-</td>
+                              <td class="text-center">-</td>
+                              <td class="text-center">S/. {{ venta.monto }}</td>
+                          </tfoot>
+                          </table>
+                        </div>
+                      </div>
+            
+                </div>
+
+
+
+               
+            </div>
+        </main>
+       
+    </div>
+</div>
